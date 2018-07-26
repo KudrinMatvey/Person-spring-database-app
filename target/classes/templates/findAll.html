@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<button class="button">
+    <a href = "/" >
+    Main menu
+    </a>
+</button>
+<p><p/>
+<div class="container">
+    <h2>Person List</h2>
+    <table class="table table-view">
+        <tr>
+            <th> id </th>
+            <th> name</th>
+        </tr>
+        <tr th:each="person : ${persons}">
+        <td th:text="${person?.id}"></td>
+        <td th:text="${person?.name}"></td>
+            <td>
+                <button>
+                    <a th:href="'/delete?id=' + ${person?.id}">delete this person</a>
+                </button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
